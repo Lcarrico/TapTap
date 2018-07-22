@@ -32,12 +32,15 @@ end
 function scene:create( event )
  
     local sceneGroup = self.view
-    -- Code here runs when the scene is first created but has not yet appeared on screen
-	bg = display.newRect(display.contentCenterX,display.contentCenterY, display.actualContentWidth, display.actualContentHeight)
-	bg:setFillColor(0.6,0.6,1)
+	
+	--This is the scrolling background image
+	bg = display.newImageRect("images/background_1.png",display.actualContentWidth, display.actualContentHeight * 5)
+	bg.x = display.actualContentWidth/2
+	bg.y = display.actualContentHeight - (bg.height/2)
 	sceneGroup:insert(bg)
 	
-	-- Code here 
+	
+	-- Lets us know of the current scene
 	curScene = display.newText("Scene: Main Menu", display.contentCenterX, display.actualContentHeight-(display.actualContentHeight/5), "Arial", 20)
 	curScene:setFillColor(1,1,0)
 	sceneGroup:insert(curScene)
